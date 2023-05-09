@@ -15,4 +15,13 @@ public class Arraylist {
         }
         return subArray;
     }
+
+    public static List<ArrayList<Integer>> getDynamicalList(Scanner sc) {
+        int countOfLoop = sc.nextInt();
+        List<ArrayList<Integer>> array = new ArrayList<>();
+        while (countOfLoop-- > 0) {
+            array.add(getArrayList(sc));
+        }
+        return array;
+    }
 }
