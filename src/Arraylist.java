@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Arraylist {
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        checkQueries(sc);
     }
 
     public static ArrayList<Integer> getArrayList(Scanner sc) {
@@ -23,5 +24,19 @@ public class Arraylist {
             array.add(getArrayList(sc));
         }
         return array;
+    }
+
+    public static void checkQueries(Scanner sc) {
+        List<ArrayList<Integer>> dynamicalArray = getDynamicalList(sc);
+        int countOfQueries = sc.nextInt();
+        while (countOfQueries-- > 0) {
+            int firstNumber = sc.nextInt();
+            int secondNumber = sc.nextInt();
+            try {
+                System.out.println(dynamicalArray.get(firstNumber - 1).get(secondNumber - 1));
+            } catch (Exception ex) {
+                System.out.println("ERROR!");
+            }
+        }
     }
 }
